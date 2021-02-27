@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Tracer</title>
+    <link rel="stylesheet" type="text/css" href="/getCSS">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/monokai-sublime.min.css">
+</head>
+<body>
+    <h2>Two Sum <a href="https://leetcode.com/problems/two-sum/" style="text-decoration: none">(Leetcode #1)</a></h2>
+    <p>Given an array of numbers <i>nums</i>, find two numbers in <i>nums</i> that sum to <i>target</i>.</p>
+    <div class="grid-container"></div>
+    
+    <pre>
+        <code class="python">  def twoSum(nums, target):
+      nums.sort()
+      l, r = 0, len(nums)-1
+      while l < r:
+          curr_sum = nums[l] + nums[r]
+          if curr_sum == target: return [nums[l], nums[r]]
+          elif curr_sum < target: l += 1
+          else: r -= 1
+        </code>
+    </pre>
+    
+    <label for="input_arr">nums = </label>
+    <input type="text" id="input_arr" placeholder="[1,2,7,11,15]">
+    <label for="input_arr">target = </label>
+    <input type="text" id="input_target" placeholder="9">
+    <button onclick="init_array(false)">Run Input</button>
+    <button onclick="init_array(true)">Run Demo</button><br>
+
+
+    <!-- https://github.com/wcoder/highlightjs-line-numbers.js/ -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+    <script src="/getJS"></script>    
+
+</body>
+</html>
