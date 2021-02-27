@@ -123,6 +123,6 @@ function unhighlight(row_idx) {
 }
 
 function show_result(arr) {
-    document.getElementById("output").innerHTML = arr;
+    document.getElementById("output").innerHTML = '[' + arr.toString() + ']';
     document.getElementById("output_div").style.display = "inline";
 }
