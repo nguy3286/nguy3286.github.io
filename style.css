@@ -21,7 +21,6 @@ code {
 
 /* https://www.w3schools.com/css/css_grid.asp */
 .grid-item {
-    background-color: rgba(221, 72, 20, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 6px;
     font-size: 18px;
@@ -33,4 +32,8 @@ code {
     grid-template-columns: repeat(35, auto);
     background-color: rgb(221, 72, 20);
     padding: 5px;
+}
+
+#output_div {
+    display: none;
 }

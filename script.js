@@ -76,7 +76,8 @@ async function twoSum(A, target)
             highlight(5);
             await sleep(2000);
             unhighlight(5);
-            return [A[l], A[r]];
+            show_result([A[l], A[r]]);
+            return null;
         }
         else if (curr_sum < target){
             highlight(6);
@@ -119,4 +120,9 @@ function highlight(row_idx) {
 function unhighlight(row_idx) {
     document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = null;
     document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = null;
+}
+
+function show_result(arr) {
+    document.getElementById("output").innerHTML = arr;
+    document.getElementById("output_div").style.display = "inline";
 }
