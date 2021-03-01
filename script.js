@@ -96,6 +96,7 @@ async function twoSum(A, target)
             unhighlight(7);
         }
     }
+    show_result([]);
 }
 
 
