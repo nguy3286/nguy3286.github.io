@@ -43,11 +43,11 @@ async function twoSum(A, target)
 {
     var curr_sum, N = A.length, l = 0, r = N-1, l_color = "rgb(126, 11, 11)", r_color = "rgb(16, 128, 62)";
 
-    highlight(0);
+    highlight(0, "rgba(255, 255, 0, 0.45)");
     await sleep(2000);
     unhighlight(0);
 
-    highlight(1);
+    highlight(1, "rgba(255, 255, 0, 0.45)");
     A.sort(function(a, b) {
         return a - b;
     });
@@ -55,7 +55,7 @@ async function twoSum(A, target)
     await sleep(2000);
     unhighlight(1);
 
-    highlight(2);
+    highlight(2, "rgba(255, 255, 0, 0.45)");
     document.getElementById(l).style.backgroundColor = l_color;
     document.getElementById(r).style.backgroundColor = r_color;
     await sleep(2000);
@@ -63,24 +63,24 @@ async function twoSum(A, target)
 
     while (l < r)
     {
-        highlight(3);
+        highlight(3, "rgba(255, 255, 0, 0.45)");
         await sleep(2000);
         unhighlight(3);
 
         curr_sum = A[l] + A[r];
-        highlight(4);
+        highlight(4, "rgba(255, 255, 0, 0.45)");
         await sleep(2000);
         unhighlight(4);
 
         if (curr_sum == target) {
-            highlight(5);
+            highlight(5, "rgba(255, 255, 0, 0.45)");
             await sleep(2000);
             unhighlight(5);
             show_result([A[l], A[r]]);
             return null;
         }
         else if (curr_sum < target){
-            highlight(6);
+            highlight(6, "rgba(255, 255, 0, 0.45)");
             await sleep(1000);
             if (l+1 < N) move_ptr(l, l+1, "rgb(126, 11, 11)");
             l++;
@@ -88,7 +88,7 @@ async function twoSum(A, target)
             unhighlight(6);
         }
         else {
-            highlight(7);
+            highlight(7, "rgba(255, 255, 0, 0.45)");
             await sleep(1000);
             if (r-1 >= 0) move_ptr(r, r-1, "rgb(16, 128, 62)");
             r--;
@@ -111,10 +111,9 @@ function sleep(ms) {
 }
 
 
-function highlight(row_idx) {
-    console.log(document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor);
-    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = "rgba(255, 255, 0, 0.45)";
-    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = "rgba(255, 255, 0, 0.45)";
+function highlight(row_idx, color) {
+    document.getElementsByClassName("hljs-ln-line hljs-ln-numbers")[row_idx].style.backgroundColor = color;
+    document.getElementsByClassName("hljs-ln-line hljs-ln-code")[row_idx].style.backgroundColor = color;
 }
 
 
