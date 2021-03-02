@@ -1,20 +1,23 @@
+// main driver function
 async function init_array(isDemo)
 {   
+    var input_target = document.getElementById("input_target").value;
+    var input_arr = document.getElementById("input_arr").value;
+
     // Read user input and error check
     if (isDemo){
         document.getElementById("input_target").value = "9";
         input_arr = document.getElementById("input_arr").value = "[1,2,7,11,15]";
     }
     else {
-        if ((input_arr == "") || (input_target == "")) return null;
+        if ((input_arr.length == 0) || (input_target.length == 0)) return null;
     }
-    var input_target = document.getElementById("input_target").value;
-    var input_arr = document.getElementById("input_arr").value;
-
+    
     // Convert input string to array
     input_target = parseInt(input_target);
     input_arr = input_arr.replace(/\s/g, '').slice(1, -1).split(',').map(x=>+x);   // get rid of empty string, delete '[' and ']', split on comma, and convert '2' to 2
-    
+
+    hide_result();
     build_array_div(input_arr);
     await sleep(2000);
     twoSum(input_arr, input_target);
@@ -123,6 +126,13 @@ function unhighlight(row_idx) {
 }
 
 function show_result(arr) {
+    var output_div = document.getElementById("output_div");
     document.getElementById("output").innerHTML = '[' + arr.toString() + ']';
-    document.getElementById("output_div").style.display = "inline";
+    output_div.style.marginLeft = "-40%";
+    output_div.style.verticalAlign = "left";
+    output_div.style.display = "block";
+}
+
+function hide_result() {
+    document.getElementById("output_div").style.display = "none"
 }
